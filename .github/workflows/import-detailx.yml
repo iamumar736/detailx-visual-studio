@@ -1,0 +1,57 @@
+name: Import DetailX website assets
+on:
+  push:
+    paths:
+      - ".github/workflows/import-detailx.yml"
+permissions:
+  contents: write
+jobs:
+  import:
+    if: github.repository == 'iamumar736/detailx-visual-studio'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download website archive
+        env:
+          DETAILX_ARCHIVE: https://d2ol7oe51mr4n9.cloudfront.net/user_3Hr23cFOJ0yBvYVQbuXTsNF7DUZ/792fba97-83f1-45c7-ad92-304f3f7ade27.zip
+        run: |
+          curl -fLSs --retry 3 --connect-timeout 20 "$DETAILX_ARCHIVE" -o /tmp/detailx.zip
+      - name: Safely extract deployable site into site directory
+        run: |
+          python3 - <<'PY'
+          import zipfile, pathlib, shutil
+          allowed_files = {'index.html','404.html','script.js','styles.css','sitemap.xml','robots.txt','site.webmanifest'}
+          allowed_dirs = ('contatti/','zone-servite/','images/','faq/','servizi/','car-wrapping/','pacchetti/')
+          root = pathlib.Path('site')
+          root.mkdir(exist_ok=True)
+          with zipfile.ZipFile('/tmp/detailx.zip') as archive:
+              for entry in archive.infolist():
+                  name=entry.filename
+                  path=pathlib.PurePosixPath(name)
+                  if entry.is_dir() or path.is_absolute() or '..' in path.parts:
+                      continue
+                  if name not in allowed_files and not name.startswith(allowed_dirs):
+                      continue
+                  if entry.file_size > 20_000_000:
+                      raise ValueError(f'Unexpectedly large file {name}')
+                  dest=root.joinpath(*path.parts)
+                  dest.parent.mkdir(parents=True,exist_ok=True)
+                  with archive.open(entry) as src, dest.open('wb') as out:
+                      shutil.copyfileobj(src,out)
+          assert (root/'index.html').exists()
+          assert (root/'styles.css').exists()
+          assert (root/'images/engine-after.webp').exists()
+          PY
+      - name: Commit and push website files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/
+          if git diff --staged --quiet; then
+            echo "No new site files"
+          else
+            git commit -m "Import complete DetailX website"
+            git push
+          fi
