@@ -5,6 +5,8 @@ services:
     runtime: static
     buildCommand: echo "No build required for this static website"
     staticPublishPath: ./site
+    domains:
+      - detailxitalia.com
     headers:
       - path: /*
         name: X-Frame-Options
