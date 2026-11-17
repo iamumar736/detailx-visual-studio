@@ -1,0 +1,29 @@
+# DetailX static website on Render
+services:
+  - type: web
+    name: detailx-visual-studio
+    runtime: static
+    buildCommand: echo "No build required for this static website"
+    staticPublishPath: ./site
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Permissions-Policy
+        value: camera=(), microphone=(), geolocation=()
+      - path: /images/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /*.css
+        name: Cache-Control
+        value: public, max-age=604800
+      - path: /*.js
+        name: Cache-Control
+        value: public, max-age=604800
