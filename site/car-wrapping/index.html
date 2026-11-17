@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="theme-color" content="#07090b"/>
+<title>DETAILX / Visual Studio — Wrapping & Window Tint</title>
+<meta name="description" content="Visualizza la tua prossima trasformazione con DETAILX: pellicole vetri, wrap e finiture in uno studio automobilistico interattivo. Mirano, Venezia."/>
+<link rel="canonical" href="https://detailxitalia.com/car-wrapping/"/>
+<link rel="preconnect" href="https://images.pexels.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./studio.css"/>
+</head><body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<div class="noise" aria-hidden="true"></div>
+<header class="nav" id="nav">
+ <a class="logo" href="/" aria-label="DETAILX sito principale"><span class="logo-square">D<span>✦</span></span><span class="logo-text">DETAIL<span>X</span><small>VISUAL STUDIO</small></span></a>
+ <nav class="links" aria-label="Navigazione studio"><button class="nav-link active" data-scene="tint">Window tint</button><button class="nav-link" data-scene="wrap">Car wrapping</button><a href="#process">Il metodo</a></nav>
+ <div class="nav-actions"><span class="place"><span class="online"></span> MIRANO / VENEZIA</span><button class="nav-cta" data-quote>PARLIAMONE <span aria-hidden="true">↗</span></button><button class="menu" id="menu" aria-label="Apri menu" aria-expanded="false"><i></i><i></i></button></div>
+</header>
+<div class="mobile-menu" id="mobileMenu" hidden><button data-scene="tint">01 / WINDOW TINT</button><button data-scene="wrap">02 / CAR WRAPPING</button><a href="#process">03 / COME FUNZIONA</a><a href="/">← TORNA AL SITO PRINCIPALE</a></div>
+<main id="main">
+<section class="stage" aria-label="Studio interattivo DETAILX">
+  <div class="stage-inner">
+    <div class="stage-label"><div><span class="live-pip"></span> DETAILX DIGITAL SHOWROOM</div><span class="stage-issue">ISSUE NO. 001 <span class="issue-dash">/</span> <span id="issueTag">GLASS EDITION</span></span></div>
+    <div class="scene active" id="tintScene" data-name="tint" aria-hidden="false">
+      <div class="tint-visual">
+        <div class="gridline" aria-hidden="true"></div>
+        <img class="tint-photo" id="tintPhoto" alt="Mercedes-Benz G-Class in studio professionale" src="https://images.pexels.com/photos/14445435/pexels-photo-14445435.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2000"/>
+        <div class="tint-darken" id="tintDarken" aria-hidden="true"></div>
+        <div class="light-bar light-a"></div><div class="light-bar light-b"></div>
+        <div class="photocredit">PHOTO PREVIEW <b>•</b> G-CLASS</div>
+        <div class="visual-vignette"></div>
+      </div>
+      <div class="story tint-story">
+        <div class="micro"><span class="dash"></span> 01 / GLASS, REDEFINED</div>
+        <div class="story-mark"><span class="cyan-ball"></span><span>G-CLASS / WINDOW TINT PREVIEW</span></div>
+        <h1>Cooler.<br><i>Still clear.</i></h1>
+        <p>La tua auto. La tua privacy. Scopri come cambia l'aspetto dei vetri, da una protezione discreta a un look più deciso.</p>
+        <button class="primary" data-quote>RICHIEDI UNA CONSULENZA <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="panel-micro" aria-label="Inquadratura veicolo"><button type="button" data-angle="hero" aria-pressed="true">01 / HERO</button><button type="button" data-angle="front" aria-pressed="false">02 / FRONT</button><button type="button" data-angle="detail" aria-pressed="false">03 / DETAIL</button></div><div class="glass-module panel-glass" aria-label="Anteprima oscuramento vetri">
+        <div class="module-head"><span><span class="blue-led"></span> GLASS LAB</span><span>LIVE PREVIEW <span class="signal">●</span></span></div>
+        <div class="tint-meter"><span>VLT FILM PREVIEW</span><strong id="vltValue">35<span>%</span></strong></div>
+        <div class="tint-presets" id="tintPresets" role="group" aria-label="Percentuale di trasmissione luminosa">
+          <button data-vlt="70">70%</button><button data-vlt="50">50%</button><button data-vlt="35" class="selected">35%</button><button data-vlt="20">20%</button><button data-vlt="5">5%</button>
+        </div>
+        <div class="rail"><input type="range" id="tintSlider" min="5" max="70" value="35" step="1" aria-label="VLT"/></div>
+        <p class="module-note" id="tintAdvice">Look bilanciato · oscuramento medio</p>
+      </div>
+    </div>
+    <div class="scene" id="wrapScene" data-name="wrap" aria-hidden="true">
+      <div class="wrap-content">
+        <div class="wrap-copy">
+          <div class="micro"><span class="dash"></span> 02 / A DIFFERENT IDENTITY</div>
+          <h1>Try it <i>on.</i></h1>
+          <p>Un colore può cambiare completamente un'auto. Esplora le finiture e scegli il carattere del tuo prossimo progetto.</p>
+          <div class="wrap-choices panel-glass">
+            <div class="module-head"><span>THE COLOUR ROOM</span><span><span class="blue-led"></span> ACTIVE</span></div>
+            <div class="swatches" id="swatches" role="group" aria-label="Colori wrapping"></div>
+            <div class="chosen"><span id="colorName">Candy Red</span><span id="colorRef">DX / 01</span></div>
+            <div class="divider-hair"></div>
+            <span class="small-label">SELECT SURFACE FINISH</span>
+            <div class="finishes" id="finishes" role="group" aria-label="Finiture"><button data-finish="gloss" class="selected">Gloss</button><button data-finish="satin">Satin</button><button data-finish="matte">Matte</button></div>
+          </div>
+          <button class="primary" data-quote>CREA IL TUO WRAP <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="wrap-visual"><div class="photo-shell" id="photoShell">
+          <div class="roof-lines"><i></i><i></i><i></i><i></i></div>
+          <img class="wrap-photo" id="wrapPhoto" src="https://images.pexels.com/photos/14445437/pexels-photo-14445437.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1800" alt="Auto rossa in studio con illuminazione professionale, anteprima wrapping"/>
+          <div class="wrap-photo-vignette"></div>
+          <div class="explode-layer" id="explodeLayer" aria-hidden="true"></div>
+          <div class="photo-overlay-top"><span>STUDIO / 02</span><span id="finishLabel">GLOSS FINISH</span></div>
+          <div class="photo-overlay-bottom"><span class="camera-status"><span class="blue-led"></span> DIGITAL FINISH PREVIEW</span><span id="previewColor">CANDY RED</span></div>
+          </div>
+          <div class="visual-tools"><button id="explodeBtn" type="button" aria-pressed="false"><span class="tool-icon">✣</span><span id="explodeText">PANEL REVEAL</span></button><button id="resetBtn" type="button"><span class="tool-icon">↺</span> RESET</button><span class="tool-note">VISUAL CONCEPT / 2D PREVIEW</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="stage-bottom">
+      <div class="stage-tabs" role="tablist" aria-label="Seleziona esperienza"><button class="scene-tab selected" id="tintTab" role="tab" data-scene="tint" aria-selected="true"><small>01 / EXPERIENCE</small><span>WINDOW TINT <em>↗</em></span></button><button class="scene-tab" id="wrapTab" role="tab" data-scene="wrap" aria-selected="false"><small>02 / EXPERIENCE</small><span>COLOUR STUDIO <em>↗</em></span></button></div>
+      <div class="stage-meta"><span class="dim-dot"></span><span id="stageDesc">VLT FILM VISUALIZER</span><span class="tally"><b id="stageNumber">01</b> / 02</span></div>
+    </div>
+  </div>
+</section>
+<section class="divider-section" id="process"><div class="section-tag">DETAILX / REAL RESULTS</div><div class="section-head"><h2>From the screen.<br><em>To the street.</em></h2><p>La tecnologia ti aiuta a immaginare. Il nostro lavoro trasforma l'idea in realtà. Scegli una direzione e richiedi una valutazione per la tua auto.</p></div><div class="service-grid">
+  <article class="service-card"><div class="card-image"><img src="https://images.pexels.com/photos/14445439/pexels-photo-14445439.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" onerror="this.src='../images/gallery/finished-mobile-detailing-result.webp'" alt="G-Class in garage, anteprima vetri"></div><div class="card-number">01 / GLASS</div><h3>Invisible protection.<br><em>Visible difference.</em></h3><p>Pellicole e oscuramento vetri: parliamone in base alla vettura e all'uso previsto.</p><button data-scene="tint">ESPLORA VETRI <span>↗</span></button></article>
+  <article class="service-card"><div class="card-image"><img src="https://images.pexels.com/photos/14445437/pexels-photo-14445437.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" onerror="this.src='../images/gallery/finished-mobile-detailing-result.webp'" alt="Auto in studio, wrapping e personalizzazione"></div><div class="card-number">02 / COLOUR</div><h3>One car.<br><em>Infinite personalities.</em></h3><p>Wrap satinati, lucidi, opachi e tinte speciali. La tonalità finale si conferma su campione reale.</p><button data-scene="wrap">ESPLORA COLORI <span>↗</span></button></article>
+</div><div class="disclaimer">Le immagini sono fotografie dimostrative. Le regolazioni visive dello studio sono simulazioni illustrative, non rendering 3D o rappresentazioni certificate del risultato finale. La VLT finale e la conformità legale dipendono dal vetro, dalla pellicola e dalla posizione di installazione. Le installazioni vengono valutate nel rispetto delle norme italiane applicabili.</div></section>
+<section class="closing"><div class="closing-light"></div><div class="section-tag">DETAILX / VENEZIA</div><h2>Make the<br><em>ordinary rare.</em></h2><p>Un progetto fatto bene comincia con una conversazione.</p><button class="primary closing-cta" data-quote>PARLIAMO DELLA TUA AUTO <span>↗</span></button></section>
+</main>
+<footer><span class="footbrand">DETAIL<span>X</span></span><span>© 2026 DETAILX • MIRANO / VENEZIA</span><a href="/">SITO PRINCIPALE ↗</a></footer>
+<dialog id="quoteDialog" class="quote-dialog"><form method="dialog" class="quote-panel"><div class="dialog-top"><span><span class="online"></span> DETAILX / RICHIEDI PREVENTIVO</span><button class="close-dialog" value="cancel" aria-label="Chiudi">✕</button></div><h2>Let's make<br><em>it yours.</em></h2><p>Abbiamo già inserito la tua selezione. Completa i dati per inviarci una richiesta WhatsApp.</p><label>MODELLO AUTO<input id="carModel" type="text" placeholder="Es. BMW Serie 3, Audi A3, Mercedes..." maxlength="80" autocomplete="off"/></label><label>LA TUA SCELTA<input id="selectionReadout" type="text" readonly/></label><button type="button" class="primary send" id="sendQuote">CONTINUA SU WHATSAPP ↗</button><small>Ti rispondiamo appena possibile. Nessun pagamento online.</small></form></dialog>
+<script defer src="./studio.js"></script>
+</body></html>
