@@ -1,7 +1,7 @@
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 // Opening loader intentionally removed for fast mobile first paint.
-$("#year").textContent=new Date().getFullYear();
-window.addEventListener("scroll",()=>$("#nav").classList.toggle("compact",scrollY>30));
+if($("#year")) $("#year").textContent=new Date().getFullYear();
+const nav=$("#nav"); if(nav)window.addEventListener("scroll",()=>nav.classList.toggle("compact",scrollY>30));
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.1});
 $$(".reveal").forEach(e=>obs.observe(e));
 
@@ -10,7 +10,7 @@ $$("[data-compare]").forEach(card=>{
  range.addEventListener("input",()=>{after.style.width=range.value+"%";divider.style.left=range.value+"%"});
 });
 
-$("#recommendForm").addEventListener("submit",e=>{
+$("#recommendForm")?.addEventListener("submit",e=>{
  e.preventDefault();
  const need=$("#recNeed").value,dirt=$("#recDirt").value,vehicle=$("#recVehicle").value;
  let name="Argento",price=99,text="Manutenzione regolare, aspirazione e lavaggio esterno completo.";
@@ -27,13 +27,13 @@ function quote(){
  $$("#quoteForm input[type=checkbox]:checked").forEach(c=>{total+=+c.value;lines.push(`${c.dataset.label}: +€${c.value}`)});
  $("#quoteTotal").textContent="€"+total; $("#quoteBreakdown").textContent=lines.join("\n"); return {total,lines};
 }
-$$("#quoteForm select,#quoteForm input").forEach(e=>e.addEventListener("change",quote));
-$("#sendQuote").addEventListener("click",()=>{
+$("#quoteForm select,#quoteForm input").forEach(e=>e.addEventListener("change",quote));
+$("#sendQuote")?.addEventListener("click",()=>{
  const q=quote(),msg=`Ciao DetailX, vorrei confermare questa stima indicativa:\n\n${q.lines.join("\n")}\n\nTotale stimato: €${q.total}\n\nVorrei verificare la disponibilità.`;
  window.open("https://wa.me/393898563081?text="+encodeURIComponent(msg),"_blank");
 });
 
-$("#bookingForm").addEventListener("submit",e=>{
+$("#bookingForm")?.addEventListener("submit",e=>{
  e.preventDefault();
  const msg=`Ciao DetailX, vorrei richiedere una prenotazione.\n\nNome: ${$("#bName").value}\nVeicolo: ${$("#bVehicle").value}\nPacchetto/servizio: ${$("#bPackage").value}\nData: ${$("#bDate").value}\nOrario: ${$("#bTime").value}\nZona: ${$("#bLocation").value}\nEsigenza: ${$("#bNeed").value}\nNote: ${$("#bNotes").value||"Nessuna"}\n\nAttendo conferma e preventivo finale.`;
  window.open("https://wa.me/393898563081?text="+encodeURIComponent(msg),"_blank");
