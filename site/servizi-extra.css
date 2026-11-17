@@ -12,3 +12,39 @@
 .dx-personal-card a{margin-top:auto;color:#f7d497;text-decoration:none;font-weight:750;font-size:14px}
 .dx-personal-card a:hover,.dx-personal-card a:focus-visible{text-decoration:underline}
 @media(max-width:850px){.dx-personal-grid{grid-template-columns:1fr}.dx-personal-section{padding:64px 20px}.dx-personal-card{min-height:auto;padding:26px}}
+
+
+/* Premium treatments: responsive, accessible, and consistent with DetailX */
+.dx-treatments{background:#101113;color:#fff;padding:clamp(68px,8vw,115px) clamp(18px,6vw,92px);scroll-margin-top:74px}
+.dx-treatments-shell{max-width:1320px;margin:0 auto}
+.dx-treatments-heading{max-width:850px}
+.dx-treatments-kicker{font:800 12px/1.5 Inter,Arial,sans-serif;letter-spacing:.2em;color:#eabd73;margin:0 0 17px}
+.dx-treatments h2{font:800 clamp(2.5rem,5.4vw,5.4rem)/1.02 Inter,Arial,sans-serif;letter-spacing:-.055em;margin:0 0 22px;color:#fff}
+.dx-treatments-heading>p:last-child{font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.75;color:#abb0b7;max-width:690px;margin:0}
+.dx-filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:40px}
+.dx-filter-row button{font:700 13px/1.2 Inter,Arial,sans-serif;border:1px solid #363a40;border-radius:100px;padding:12px 17px;color:#d4d7dc;background:#1b1e22;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
+.dx-filter-row button:is(:hover,:focus-visible){border-color:#eabd73;color:#fff}
+.dx-filter-row button.is-active{background:#f3bb3f;border-color:#f3bb3f;color:#161512}
+.dx-filter-status{color:#858a92;font-size:12px;letter-spacing:.05em;margin:18px 0 20px;min-height:20px}
+.dx-treatment-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.dx-treatment-card{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:326px;padding:30px 28px;border:1px solid #36383d;border-radius:20px;background:radial-gradient(circle at 95% 0%,rgba(241,188,77,.09),transparent 42%),linear-gradient(140deg,#202124,#151619);transition:transform .25s,border-color .25s,box-shadow .25s;overflow:hidden}
+.dx-treatment-card:after{content:"";position:absolute;right:-45px;top:-55px;width:150px;height:150px;border:1px solid rgba(255,255,255,.035);border-radius:100%;pointer-events:none}
+.dx-treatment-card:is(:hover,:focus-within){border-color:rgba(243,187,63,.64);transform:translateY(-3px);box-shadow:0 24px 45px rgba(0,0,0,.18)}
+.dx-treatment-card[hidden]{display:none!important}
+.dx-treatment-top{display:flex;justify-content:space-between;align-items:start;gap:10px}
+.dx-service-index{color:#dfb46f;font-size:11px;font-weight:800;letter-spacing:.18em}
+.dx-service-symbol{font-size:29px;color:#f2c16c;line-height:1}
+.dx-treatment-copy h3{font:750 clamp(1.3rem,1.7vw,1.75rem)/1.2 Inter,Arial,sans-serif;letter-spacing:-.03em;color:#f6f6f4;margin:22px 0 12px}
+.dx-treatment-copy p{font-size:14px;line-height:1.7;color:#adb1b8;margin:0 0 26px}
+.dx-treatment-card>a{font-size:13px;font-weight:800;color:#f0c477;text-decoration:none;display:flex;gap:12px;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.12);padding-top:17px;margin-top:auto}
+.dx-treatment-card>a:hover{text-decoration:underline}
+.dx-treatments-footer{margin-top:18px;display:flex;gap:24px;align-items:center;justify-content:space-between;background:#202123;border:1px solid #33363c;border-radius:18px;padding:25px 30px}
+.dx-treatments-footer strong{font-size:17px;font-weight:800;color:#fff}
+.dx-treatments-footer p{color:#aeb2b8;font-size:13px;line-height:1.6;margin:6px 0 0;max-width:680px}
+.dx-treatments-footer>a{flex-shrink:0;color:#151515;background:#f3bb3f;padding:15px 19px;border-radius:999px;text-decoration:none;font-weight:800;font-size:13px}
+.dx-treatments-footer>a:hover{background:#ffcf68}
+.dx-personal-section{scroll-margin-top:74px}
+.dx-treatments :focus-visible,.dx-personal-section :focus-visible{outline:3px solid #f3bb3f;outline-offset:4px}
+@media(max-width:1080px){.dx-treatment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.dx-treatments{padding:64px 19px}.dx-treatment-grid{grid-template-columns:1fr}.dx-treatment-card{min-height:265px;padding:25px 22px}.dx-treatments-footer{flex-direction:column;align-items:flex-start}.dx-treatments-footer>a{width:100%;text-align:center}.dx-filter-row{gap:8px;margin-top:25px}.dx-filter-row button{padding:10px 13px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.dx-treatment-card,.dx-filter-row button{transition:none!important}}
